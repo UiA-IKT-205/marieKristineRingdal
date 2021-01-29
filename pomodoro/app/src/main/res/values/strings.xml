@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Pomodoro</string>
-    <string name="default_time_display">00:00:00</string>
+    <string name="defaultTimeDisplay">00:00:00</string>
     <string name="startButtonText">Start</string>
-    <string name="thirtySeconds">30 sec</string>
-    <string name="sixtySeconds">60 sec</string>
-    <string name="ninetySeconds">90 sec</string>
-    <string name="hundredtwentySeconds">120 sec</string>
+    <string name="amountOfRepetitions">Add amount of repetitions</string>
+    <string name="pauseTimeText">Set pause time:</string>
+    <string name="workTimeText">Set work time:</string>
+    <string name="countdownStatusText">COUNTING DOWN FROM:</string>
 </resources>

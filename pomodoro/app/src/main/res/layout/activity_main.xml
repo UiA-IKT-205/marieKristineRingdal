@@ -6,84 +6,155 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
-        android:id="@+id/countDownView"
+        android:id="@+id/countdownStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/default_time_display"
-        android:textSize="60sp"
+        android:text="@string/countdownStatusText"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="#edd0b2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199" />
+        app:layout_constraintVertical_bias="0.066" />
+
+    <!-- Display for showing the countdown -->
+
+    <TextView
+        android:id="@+id/countDownView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultTimeDisplay"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
+
+    <!-- Display for showing the work time selected -->
+
+    <TextView
+        android:id="@+id/workTimeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultTimeDisplay"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.345" />
+
+    <TextView
+        android:id="@+id/workTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/workTimeText"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/workTimeView"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countDownView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!-- Display for showing the pause time selected -->
+
+    <TextView
+        android:id="@+id/pauseTimeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/defaultTimeDisplay"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.513" />
+
+    <TextView
+        android:id="@+id/pauseTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pauseTimeText"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <!-- Button configurations -->
 
     <Button
         android:id="@+id/startCountdownButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/startButtonText"
+        android:backgroundTint="#edd0b2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/countDownView"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.745" />
 
-    <Button
-        android:id="@+id/thirtySeconds"
-        android:layout_width="wrap_content"
+    <!-- Countdown for work and pause SeekBar Configuration -->
+
+    <SeekBar
+        android:id="@+id/countdownForWorkTimerSeekBar"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="394dp"
-        android:text="@string/thirtySeconds"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="127dp"
+        android:progressTint="#757575"
+        android:thumbTint="#edd0b2"
+        android:max="300"
+        android:min="15"
+        app:layout_constraintBottom_toTopOf="@+id/startCountdownButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startCountdownButton" />
+        app:layout_constraintTop_toBottomOf="@+id/countDownView"
+        app:layout_constraintVertical_bias="0.21" />
 
-    <Button
-        android:id="@+id/sixtySeconds"
-        android:layout_width="wrap_content"
+    <SeekBar
+        android:id="@+id/countdownForPauseTimerSeekBar"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="158dp"
-        android:layout_marginBottom="324dp"
-        android:text="@string/sixtySeconds"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="93dp"
+        android:layout_marginBottom="40dp"
+        android:progressTint="#757575"
+        android:thumbTint="#edd0b2"
+        android:max="300"
+        android:min="15"
+        app:layout_constraintBottom_toTopOf="@+id/startCountdownButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thirtySeconds" />
+        app:layout_constraintTop_toBottomOf="@+id/countdownForWorkTimerSeekBar"
+        app:layout_constraintVertical_bias="0.189" />
 
-    <Button
-        android:id="@+id/ninetySeconds"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="429dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="254dp"
-        android:text="@string/ninetySeconds"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- EditText for adding number of repetitions -->
 
-    <Button
-        android:id="@+id/hundredtwentySeconds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="495dp"
-        android:text="@string/hundredtwentySeconds"
+    <EditText
+        android:id="@+id/amountOfRepetitionsEditText"
+        android:layout_width="223dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="88dp"
+        android:backgroundTint="#edd0b2"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/amountOfRepetitions"
+        android:autofillHints="@string/amountOfRepetitions"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/startCountdownButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/countdownForPauseTimerSeekBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
